@@ -1,0 +1,56 @@
+@model App.ViewModels.CreateRaceRequest
+
+@{
+    ViewData["Title"] = "CreateRace";
+}
+
+<h1>Créer une course</h1>
+
+<div class="back-list">
+    <a asp-action="Index">← Retourner à la lite de courses</a>
+</div>
+<div class="row">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="RaceName" class="control-label">Nom de la course</label>
+                    <input asp-for="RaceName" class="form-control" />
+                    <span asp-validation-for="RaceName" class="error-label"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RaceDate" class="control-label">Date</label>
+                    <input asp-for="RaceDate" class="form-control" />
+                    <span asp-validation-for="RaceDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RaceStart" class="control-label">Heure de départ</label>
+                    <input asp-for="RaceStart" class="form-control" />
+                    <span asp-validation-for="RaceStart" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MaxParticipant" class="control-label">Limite de participant</label>
+                    <input asp-for="MaxParticipant" class="form-control" />
+                    <span asp-validation-for="MaxParticipant" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Créer" class="btn btn-success margin-top" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="RaceLatitude" class="control-label">Latitude</label>
+                    <input asp-for="RaceLatitude" class="form-control" />
+                    <span asp-validation-for="RaceLatitude" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RaceLongitude" class="control-label">Longitude</label>
+                    <input asp-for="RaceLongitude" class="form-control" />
+                    <span asp-validation-for="RaceLongitude" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        </form>
+</div>
+

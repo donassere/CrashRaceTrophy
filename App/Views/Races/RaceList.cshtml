@@ -1,0 +1,40 @@
+@model App.ViewModels.RaceListViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_MyLayout";
+}
+
+<h1>@Model.HeaderTitle</h1>
+
+<p>
+    <a asp-action="Create">+ Créer une course</a>
+</p>
+<div class="card-container">
+@foreach (var item in Model.RaceList) {
+    <div class="card-container__card">
+        <div class="card-container__card__buttons">
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </p>
+        </div>
+        <p class="card-container__card__card-date">
+            @item.EventDate.ToShortDateString()
+        </p>
+        <h2 class="card-container__card__card-title">
+            @Html.DisplayFor(modelItem => item.Name)
+        </h2>
+        <p class="card-container__card__card-meta">
+            Heure de départ : <strong>@Html.DisplayFor(modelItem => item.EventDate)</strong>
+        </p>
+        <p class="card-container__card__card-meta">
+            Latitude et Longitude : <strong>@Html.DisplayFor(modelItem => item.RaceLatitude) / @Html.DisplayFor(modelItem => item.RaceLongitude)</strong>
+        </p>
+        <p class="card-container__card__card-meta">
+            Limite de participant : <strong>@Html.DisplayFor(modelItem => item.MaxParticipant)</strong>
+        </p>
+    </div>
+}
+</div>
